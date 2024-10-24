@@ -58,7 +58,7 @@ def calculateDeathAge(low, high):
 def surviveToAdulthood(infant_mortality_percentage):
   return random.randrange(0, 100) > infant_mortality_percentage
 
-def calculateLifeExpectency(infant_mortality_percentage, min_child_age, max_child_age, min_adult_age, max_adult_age, population):
+def calculateLifeSpan(infant_mortality_percentage, min_child_age, max_child_age, min_adult_age, max_adult_age, population):
   total_population_age = 0
 
   for _ in range(0, population):
@@ -89,8 +89,9 @@ def main(args):
     exit(1)
 
   
-
-  print("Average Life Expetency: %s" % calculateLifeExpectency(infant_mortality_percentage, min_child_age, max_child_age, min_adult_age, max_adult_age, population))
+  average_life_span = calculateLifeSpan(infant_mortality_percentage, min_child_age, max_child_age, min_adult_age, max_adult_age, population)
+  print("Average Life Span: %s" % average_life_span)
+  print("Average Life Expectancy: %s" % (average_life_span - min_child_age))
 
 if __name__ == '__main__':
   init()
